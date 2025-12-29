@@ -13,7 +13,7 @@ class QueryBuilderController extends Controller
         $query = User::where('age', '>', 18);
 
         // 内部状態を取得
-        $queryState = [
+        $simpleQuery = [
             'wheres' => $query->getQuery()->wheres,
             'bindings' => $query->getQuery()->getBindings(),
             'sql' => $query->toSql(),
@@ -30,14 +30,14 @@ class QueryBuilderController extends Controller
             'sql' => $complexQuery->toSql(),
         ];
 
-        return view('querybuilder.index', [
-            'simpleQuery' => $queryState,
+        return inertia('Querybuilder/Index', [
+            'simpleQuery' => $simpleQuery,
             'complexQuery' => $complexQueryState,
         ]);
     }
 
     public function guide()
     {
-        return view('querybuilder.guide');
+        return inertia('Querybuilder/Guide');
     }
 }
