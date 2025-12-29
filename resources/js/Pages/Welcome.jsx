@@ -8,7 +8,9 @@ export default function Welcome({ laravelVersion, phpVersion }) {
             title: "Query Builder 実践",
             description:
                 "クエリビルダーの内部状態をリアルタイムで確認。WHERE条件やバインディングの仕組みを視覚的に理解できます。",
-            badge: "データベース",
+            badge: "DATABASE",
+            color: "bg-cyan-400",
+            rotate: "rotate-1",
         },
         {
             href: "/validation",
@@ -16,7 +18,9 @@ export default function Welcome({ laravelVersion, phpVersion }) {
             title: "Validation 実践",
             description:
                 "フォームのバリデーション機能を実践。ルール、エラー、検証済みデータの内部構造を確認できます。",
-            badge: "セキュリティ",
+            badge: "SECURITY",
+            color: "bg-lime-400",
+            rotate: "-rotate-1",
         },
         {
             href: "/errorfix",
@@ -24,7 +28,9 @@ export default function Welcome({ laravelVersion, phpVersion }) {
             title: "エラー修正の流れ",
             description:
                 "実際に発生したBladeエラーを例に、デバッグから修正までの実践的な流れを8ステップで解説します。",
-            badge: "デバッグ",
+            badge: "DEBUG",
+            color: "bg-fuchsia-400",
+            rotate: "rotate-2",
         },
         {
             href: "/bladeescape",
@@ -32,7 +38,9 @@ export default function Welcome({ laravelVersion, phpVersion }) {
             title: "Bladeエスケープ",
             description:
                 "コードサンプルを表示する際のエスケープ方法を完全網羅。よくある間違いパターンと正しい書き方を学べます。",
-            badge: "Blade",
+            badge: "BLADE",
+            color: "bg-orange-400",
+            rotate: "-rotate-2",
         },
         {
             href: "/querybuilder/guide",
@@ -40,7 +48,9 @@ export default function Welcome({ laravelVersion, phpVersion }) {
             title: "実装ガイド",
             description:
                 "実装の流れを7ステップで解説。Controller、View、Route、Migrationの作成方法を学べます。",
-            badge: "基礎",
+            badge: "GUIDE",
+            color: "bg-violet-400",
+            rotate: "rotate-1",
         },
         {
             href: "/refactoring",
@@ -48,7 +58,9 @@ export default function Welcome({ laravelVersion, phpVersion }) {
             title: "リファクタリング",
             description:
                 "コードの重複削減とレイアウト共通化の実践。保守性の高いビュー構造への改善ステップを解説します。",
-            badge: "基礎",
+            badge: "REFACTOR",
+            color: "bg-emerald-400",
+            rotate: "-rotate-1",
         },
         {
             href: "/inertia",
@@ -56,144 +68,61 @@ export default function Welcome({ laravelVersion, phpVersion }) {
             title: "Inertia.js + React 導入",
             description:
                 "LaravelにInertia.jsとReactを導入し、SPAを実現する完全ガイド。セットアップから問題解決まで。",
-            badge: "フロントエンド",
+            badge: "FRONTEND",
+            color: "bg-pink-400",
+            rotate: "rotate-2",
         },
     ];
 
     return (
         <>
             <Head title="Laravel 学習ガイド" />
-            <style>{`
-                * {
-                    margin: 0;
-                    padding: 0;
-                    box-sizing: border-box;
-                }
 
-                body {
-                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    min-height: 100vh;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding: 20px;
-                }
+            <div className="min-h-screen bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                    {/* Header */}
+                    <header className="mb-16 relative">
+                        <div className="bg-yellow-300 border-4 border-black p-12 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] rotate-1">
+                            <h1 className="text-7xl md:text-8xl font-black text-black mb-4 -rotate-1 inline-block">
+                                Laravel
+                            </h1>
+                            <div className="bg-black text-yellow-300 inline-block px-6 py-2 border-4 border-black shadow-[6px_6px_0px_0px_rgba(255,237,51,1)] ml-4 rotate-2">
+                                <span className="text-3xl font-black">学習ガイド</span>
+                            </div>
+                            <p className="text-xl font-bold text-black mt-6 -rotate-1">
+                                実践的なコード例で Laravel の仕組みを深く理解する
+                            </p>
+                        </div>
+                    </header>
 
-                .container {
-                    max-width: 900px;
-                    width: 100%;
-                }
+                    {/* Cards Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                        {cards.map((card, index) => (
+                            <Link
+                                key={index}
+                                href={card.href}
+                                className={`group ${card.color} border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] transition-all ${card.rotate}`}
+                            >
+                                <div className="text-6xl mb-4">{card.icon}</div>
+                                <h2 className="text-2xl font-black text-black mb-3">
+                                    {card.title}
+                                </h2>
+                                <p className="text-base text-black mb-6 leading-relaxed font-bold">
+                                    {card.description}
+                                </p>
+                                <div className="bg-black text-white inline-block px-4 py-2 font-black text-sm border-4 border-black">
+                                    [{card.badge}]
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
 
-                .hero {
-                    background: white;
-                    border-radius: 20px;
-                    padding: 60px 40px;
-                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-                    text-align: center;
-                    margin-bottom: 30px;
-                }
-
-                h1 {
-                    color: #333;
-                    font-size: 3rem;
-                    margin-bottom: 15px;
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    background-clip: text;
-                }
-
-                .subtitle {
-                    color: #666;
-                    font-size: 1.2rem;
-                    margin-bottom: 40px;
-                }
-
-                .card-grid {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                    gap: 20px;
-                }
-
-                .card {
-                    background: white;
-                    border-radius: 15px;
-                    padding: 30px;
-                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-                    transition: transform 0.3s, box-shadow 0.3s;
-                    text-decoration: none;
-                    display: block;
-                }
-
-                .card:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-                }
-
-                .card-icon {
-                    font-size: 3rem;
-                    margin-bottom: 20px;
-                }
-
-                .card-title {
-                    color: #333;
-                    font-size: 1.5rem;
-                    font-weight: 600;
-                    margin-bottom: 10px;
-                }
-
-                .card-description {
-                    color: #666;
-                    font-size: 1rem;
-                    line-height: 1.6;
-                }
-
-                .badge {
-                    display: inline-block;
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    color: white;
-                    padding: 5px 15px;
-                    border-radius: 20px;
-                    font-size: 0.9rem;
-                    margin-top: 15px;
-                }
-
-                .footer {
-                    text-align: center;
-                    color: white;
-                    margin-top: 30px;
-                    font-size: 0.9rem;
-                }
-
-                .footer a {
-                    color: white;
-                    text-decoration: underline;
-                }
-            `}</style>
-
-            <div className="container">
-                <div className="hero">
-                    <h1>🚀 Laravel 学習ガイド</h1>
-                    <p className="subtitle">実践的なコード例で Laravel の仕組みを深く理解する</p>
-                </div>
-
-                <div className="card-grid">
-                    {cards.map((card, index) => (
-                        <Link key={index} href={card.href} className="card">
-                            <div className="card-icon">{card.icon}</div>
-                            <h2 className="card-title">{card.title}</h2>
-                            <p className="card-description">{card.description}</p>
-                            <span className="badge">{card.badge}</span>
-                        </Link>
-                    ))}
-                </div>
-
-                <div className="footer">
-                    <p>
-                        Laravel {laravelVersion || "11.x"} | PHP {phpVersion || "8.x"}
-                    </p>
-                    <p>Made with ❤️ for learning Laravel</p>
+                    {/* Footer */}
+                    <footer className="bg-black text-white p-6 border-4 border-black shadow-[8px_8px_0px_0px_rgba(255,0,255,1)] -rotate-1">
+                        <p className="text-center font-black uppercase tracking-wider">
+                            Laravel {laravelVersion || "11.x"} · PHP {phpVersion || "8.x"}
+                        </p>
+                    </footer>
                 </div>
             </div>
         </>
