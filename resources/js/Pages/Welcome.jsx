@@ -63,137 +63,56 @@ export default function Welcome({ laravelVersion, phpVersion }) {
     return (
         <>
             <Head title="Laravel 学習ガイド" />
-            <style>{`
-                * {
-                    margin: 0;
-                    padding: 0;
-                    box-sizing: border-box;
-                }
 
-                body {
-                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    min-height: 100vh;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding: 20px;
-                }
+            <div className="min-h-screen bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 relative overflow-hidden">
+                {/* Background decorative blobs */}
+                <div className="absolute top-20 left-10 w-72 h-72 bg-white/20 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl"></div>
+                <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-yellow-300/20 rounded-full blur-3xl"></div>
 
-                .container {
-                    max-width: 900px;
-                    width: 100%;
-                }
+                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                    {/* Header */}
+                    <header className="mb-16 text-center">
+                        <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-12 border border-white/20 shadow-2xl">
+                            <h1 className="text-6xl md:text-7xl font-bold text-white mb-4 drop-shadow-lg">
+                                Laravel 学習ガイド
+                            </h1>
+                            <p className="text-xl text-white/90 drop-shadow">
+                                実践的なコード例で Laravel の仕組みを深く理解する
+                            </p>
+                        </div>
+                    </header>
 
-                .hero {
-                    background: white;
-                    border-radius: 20px;
-                    padding: 60px 40px;
-                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-                    text-align: center;
-                    margin-bottom: 30px;
-                }
+                    {/* Cards Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                        {cards.map((card, index) => (
+                            <Link
+                                key={index}
+                                href={card.href}
+                                className="group bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/30 transition-all duration-300 hover:bg-white/30 hover:scale-105 hover:shadow-2xl"
+                            >
+                                <div className="text-5xl mb-4">{card.icon}</div>
+                                <h2 className="text-2xl font-bold text-white mb-3 drop-shadow">
+                                    {card.title}
+                                </h2>
+                                <p className="text-sm text-white/80 mb-4 leading-relaxed">
+                                    {card.description}
+                                </p>
+                                <span className="inline-block bg-white/30 backdrop-blur-sm text-white text-xs px-4 py-1.5 rounded-full font-medium border border-white/40">
+                                    {card.badge}
+                                </span>
+                            </Link>
+                        ))}
+                    </div>
 
-                h1 {
-                    color: #333;
-                    font-size: 3rem;
-                    margin-bottom: 15px;
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    background-clip: text;
-                }
-
-                .subtitle {
-                    color: #666;
-                    font-size: 1.2rem;
-                    margin-bottom: 40px;
-                }
-
-                .card-grid {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                    gap: 20px;
-                }
-
-                .card {
-                    background: white;
-                    border-radius: 15px;
-                    padding: 30px;
-                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-                    transition: transform 0.3s, box-shadow 0.3s;
-                    text-decoration: none;
-                    display: block;
-                }
-
-                .card:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-                }
-
-                .card-icon {
-                    font-size: 3rem;
-                    margin-bottom: 20px;
-                }
-
-                .card-title {
-                    color: #333;
-                    font-size: 1.5rem;
-                    font-weight: 600;
-                    margin-bottom: 10px;
-                }
-
-                .card-description {
-                    color: #666;
-                    font-size: 1rem;
-                    line-height: 1.6;
-                }
-
-                .badge {
-                    display: inline-block;
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    color: white;
-                    padding: 5px 15px;
-                    border-radius: 20px;
-                    font-size: 0.9rem;
-                    margin-top: 15px;
-                }
-
-                .footer {
-                    text-align: center;
-                    color: white;
-                    margin-top: 30px;
-                    font-size: 0.9rem;
-                }
-
-                .footer a {
-                    color: white;
-                    text-decoration: underline;
-                }
-            `}</style>
-
-            <div className="container">
-                <div className="hero">
-                    <h1>🚀 Laravel 学習ガイド</h1>
-                    <p className="subtitle">実践的なコード例で Laravel の仕組みを深く理解する</p>
-                </div>
-
-                <div className="card-grid">
-                    {cards.map((card, index) => (
-                        <Link key={index} href={card.href} className="card">
-                            <div className="card-icon">{card.icon}</div>
-                            <h2 className="card-title">{card.title}</h2>
-                            <p className="card-description">{card.description}</p>
-                            <span className="badge">{card.badge}</span>
-                        </Link>
-                    ))}
-                </div>
-
-                <div className="footer">
-                    <p>
-                        Laravel {laravelVersion || "11.x"} | PHP {phpVersion || "8.x"}
-                    </p>
-                    <p>Made with ❤️ for learning Laravel</p>
+                    {/* Footer */}
+                    <footer className="text-center">
+                        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                            <p className="text-sm text-white/90 font-medium">
+                                Laravel {laravelVersion || "11.x"} · PHP {phpVersion || "8.x"}
+                            </p>
+                        </div>
+                    </footer>
                 </div>
             </div>
         </>
