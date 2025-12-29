@@ -8,6 +8,6 @@ class ErrorFixController extends Controller
 {
     public function index()
     {
-        return view('errorfix.index');
+        return inertia('Errorfix/Index');
     }
 }
