@@ -63,137 +63,47 @@ export default function Welcome({ laravelVersion, phpVersion }) {
     return (
         <>
             <Head title="Laravel 学習ガイド" />
-            <style>{`
-                * {
-                    margin: 0;
-                    padding: 0;
-                    box-sizing: border-box;
-                }
 
-                body {
-                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    min-height: 100vh;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding: 20px;
-                }
+            <div className="min-h-screen bg-white">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                    {/* Header */}
+                    <header className="mb-16 border-b border-gray-200 pb-12">
+                        <h1 className="text-5xl font-light text-gray-900 mb-4">
+                            Laravel 学習ガイド
+                        </h1>
+                        <p className="text-lg text-gray-600 font-light">
+                            実践的なコード例で Laravel の仕組みを深く理解する
+                        </p>
+                    </header>
 
-                .container {
-                    max-width: 900px;
-                    width: 100%;
-                }
+                    {/* Cards Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                        {cards.map((card, index) => (
+                            <Link
+                                key={index}
+                                href={card.href}
+                                className="group border border-gray-200 hover:border-blue-500 transition-colors duration-300 p-6"
+                            >
+                                <div className="text-4xl mb-4">{card.icon}</div>
+                                <h2 className="text-xl font-medium text-gray-900 mb-2">
+                                    {card.title}
+                                </h2>
+                                <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                                    {card.description}
+                                </p>
+                                <span className="inline-block text-xs text-blue-600 font-medium uppercase tracking-wider">
+                                    {card.badge}
+                                </span>
+                            </Link>
+                        ))}
+                    </div>
 
-                .hero {
-                    background: white;
-                    border-radius: 20px;
-                    padding: 60px 40px;
-                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-                    text-align: center;
-                    margin-bottom: 30px;
-                }
-
-                h1 {
-                    color: #333;
-                    font-size: 3rem;
-                    margin-bottom: 15px;
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    background-clip: text;
-                }
-
-                .subtitle {
-                    color: #666;
-                    font-size: 1.2rem;
-                    margin-bottom: 40px;
-                }
-
-                .card-grid {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                    gap: 20px;
-                }
-
-                .card {
-                    background: white;
-                    border-radius: 15px;
-                    padding: 30px;
-                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-                    transition: transform 0.3s, box-shadow 0.3s;
-                    text-decoration: none;
-                    display: block;
-                }
-
-                .card:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-                }
-
-                .card-icon {
-                    font-size: 3rem;
-                    margin-bottom: 20px;
-                }
-
-                .card-title {
-                    color: #333;
-                    font-size: 1.5rem;
-                    font-weight: 600;
-                    margin-bottom: 10px;
-                }
-
-                .card-description {
-                    color: #666;
-                    font-size: 1rem;
-                    line-height: 1.6;
-                }
-
-                .badge {
-                    display: inline-block;
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    color: white;
-                    padding: 5px 15px;
-                    border-radius: 20px;
-                    font-size: 0.9rem;
-                    margin-top: 15px;
-                }
-
-                .footer {
-                    text-align: center;
-                    color: white;
-                    margin-top: 30px;
-                    font-size: 0.9rem;
-                }
-
-                .footer a {
-                    color: white;
-                    text-decoration: underline;
-                }
-            `}</style>
-
-            <div className="container">
-                <div className="hero">
-                    <h1>🚀 Laravel 学習ガイド</h1>
-                    <p className="subtitle">実践的なコード例で Laravel の仕組みを深く理解する</p>
-                </div>
-
-                <div className="card-grid">
-                    {cards.map((card, index) => (
-                        <Link key={index} href={card.href} className="card">
-                            <div className="card-icon">{card.icon}</div>
-                            <h2 className="card-title">{card.title}</h2>
-                            <p className="card-description">{card.description}</p>
-                            <span className="badge">{card.badge}</span>
-                        </Link>
-                    ))}
-                </div>
-
-                <div className="footer">
-                    <p>
-                        Laravel {laravelVersion || "11.x"} | PHP {phpVersion || "8.x"}
-                    </p>
-                    <p>Made with ❤️ for learning Laravel</p>
+                    {/* Footer */}
+                    <footer className="border-t border-gray-200 pt-8 text-center">
+                        <p className="text-sm text-gray-500">
+                            Laravel {laravelVersion || "11.x"} · PHP {phpVersion || "8.x"}
+                        </p>
+                    </footer>
                 </div>
             </div>
         </>
