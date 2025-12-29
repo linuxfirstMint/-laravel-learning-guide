@@ -6,6 +6,6 @@ class BladeEscapeController extends Controller
 {
     public function index()
     {
-        return view('bladeescape.index');
+        return inertia('Bladeescape/Index');
     }
 }
