@@ -9,7 +9,7 @@ class ValidationController extends Controller
 {
     public function index()
     {
-        return view('validation.index');
+        return inertia('Validation/Index');
     }
 
     public function validate(Request $request)
@@ -35,13 +35,13 @@ class ValidationController extends Controller
             'validated' => $validator->passes() ? $validator->validated() : null,
         ];
 
-        return view('validation.result', [
+        return inertia('Validation/Result', [
             'state' => $validationState,
         ]);
     }
 
     public function guide()
     {
-        return view('validation.guide');
+        return inertia('Validation/Guide');
     }
 }
