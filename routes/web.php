@@ -8,7 +8,10 @@ use App\Http\Controllers\ValidationController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return inertia('Welcome');
+    return inertia('Welcome', [
+        'laravelVersion' => app()->version(),
+        'phpVersion' => PHP_VERSION,
+    ]);
 });
 Route::get('/querybuilder', [QueryBuilderController::class, 'index']);
 Route::get('/querybuilder/guide', [QueryBuilderController::class, 'guide']);
