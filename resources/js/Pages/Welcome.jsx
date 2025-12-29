@@ -1,4 +1,3 @@
-import React from "react";
 import { Head, Link } from "@inertiajs/react";
 
 export default function Welcome({ laravelVersion, phpVersion }) {
@@ -50,6 +49,14 @@ export default function Welcome({ laravelVersion, phpVersion }) {
             description:
                 "コードの重複削減とレイアウト共通化の実践。保守性の高いビュー構造への改善ステップを解説します。",
             badge: "基礎",
+        },
+        {
+            href: "/inertia",
+            icon: "⚛️",
+            title: "Inertia.js + React 導入",
+            description:
+                "LaravelにInertia.jsとReactを導入し、SPAを実現する完全ガイド。セットアップから問題解決まで。",
+            badge: "フロントエンド",
         },
     ];
 
