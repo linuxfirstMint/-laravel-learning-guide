@@ -9,6 +9,7 @@ export default function Welcome({ laravelVersion, phpVersion }) {
             description:
                 "クエリビルダーの内部状態をリアルタイムで確認。WHERE条件やバインディングの仕組みを視覚的に理解できます。",
             badge: "データベース",
+            color: "cyan",
         },
         {
             href: "/validation",
@@ -17,6 +18,7 @@ export default function Welcome({ laravelVersion, phpVersion }) {
             description:
                 "フォームのバリデーション機能を実践。ルール、エラー、検証済みデータの内部構造を確認できます。",
             badge: "セキュリティ",
+            color: "green",
         },
         {
             href: "/errorfix",
@@ -25,6 +27,7 @@ export default function Welcome({ laravelVersion, phpVersion }) {
             description:
                 "実際に発生したBladeエラーを例に、デバッグから修正までの実践的な流れを8ステップで解説します。",
             badge: "デバッグ",
+            color: "red",
         },
         {
             href: "/bladeescape",
@@ -33,6 +36,7 @@ export default function Welcome({ laravelVersion, phpVersion }) {
             description:
                 "コードサンプルを表示する際のエスケープ方法を完全網羅。よくある間違いパターンと正しい書き方を学べます。",
             badge: "Blade",
+            color: "yellow",
         },
         {
             href: "/querybuilder/guide",
@@ -41,6 +45,7 @@ export default function Welcome({ laravelVersion, phpVersion }) {
             description:
                 "実装の流れを7ステップで解説。Controller、View、Route、Migrationの作成方法を学べます。",
             badge: "基礎",
+            color: "blue",
         },
         {
             href: "/refactoring",
@@ -49,6 +54,7 @@ export default function Welcome({ laravelVersion, phpVersion }) {
             description:
                 "コードの重複削減とレイアウト共通化の実践。保守性の高いビュー構造への改善ステップを解説します。",
             badge: "基礎",
+            color: "purple",
         },
         {
             href: "/inertia",
@@ -57,143 +63,64 @@ export default function Welcome({ laravelVersion, phpVersion }) {
             description:
                 "LaravelにInertia.jsとReactを導入し、SPAを実現する完全ガイド。セットアップから問題解決まで。",
             badge: "フロントエンド",
+            color: "pink",
         },
     ];
+
+    const colorClasses = {
+        cyan: "border-cyan-500 hover:shadow-cyan-500/50",
+        green: "border-green-500 hover:shadow-green-500/50",
+        red: "border-red-500 hover:shadow-red-500/50",
+        yellow: "border-yellow-500 hover:shadow-yellow-500/50",
+        blue: "border-blue-500 hover:shadow-blue-500/50",
+        purple: "border-purple-500 hover:shadow-purple-500/50",
+        pink: "border-pink-500 hover:shadow-pink-500/50",
+    };
 
     return (
         <>
             <Head title="Laravel 学習ガイド" />
-            <style>{`
-                * {
-                    margin: 0;
-                    padding: 0;
-                    box-sizing: border-box;
-                }
 
-                body {
-                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    min-height: 100vh;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding: 20px;
-                }
+            <div className="min-h-screen bg-gray-950">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                    {/* Header */}
+                    <header className="mb-20 text-center">
+                        <h1 className="text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 mb-6 animate-pulse">
+                            Laravel 学習ガイド
+                        </h1>
+                        <p className="text-xl text-gray-400">
+                            実践的なコード例で Laravel の仕組みを深く理解する
+                        </p>
+                    </header>
 
-                .container {
-                    max-width: 900px;
-                    width: 100%;
-                }
+                    {/* Cards Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+                        {cards.map((card, index) => (
+                            <Link
+                                key={index}
+                                href={card.href}
+                                className={`group bg-gray-900 border-2 ${colorClasses[card.color]} rounded-lg p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1`}
+                            >
+                                <div className="text-5xl mb-4">{card.icon}</div>
+                                <h2 className="text-2xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300">
+                                    {card.title}
+                                </h2>
+                                <p className="text-sm text-gray-400 mb-4 leading-relaxed">
+                                    {card.description}
+                                </p>
+                                <span className="inline-block text-xs text-gray-500 font-mono uppercase tracking-widest">
+                                    {card.badge}
+                                </span>
+                            </Link>
+                        ))}
+                    </div>
 
-                .hero {
-                    background: white;
-                    border-radius: 20px;
-                    padding: 60px 40px;
-                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-                    text-align: center;
-                    margin-bottom: 30px;
-                }
-
-                h1 {
-                    color: #333;
-                    font-size: 3rem;
-                    margin-bottom: 15px;
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    background-clip: text;
-                }
-
-                .subtitle {
-                    color: #666;
-                    font-size: 1.2rem;
-                    margin-bottom: 40px;
-                }
-
-                .card-grid {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                    gap: 20px;
-                }
-
-                .card {
-                    background: white;
-                    border-radius: 15px;
-                    padding: 30px;
-                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-                    transition: transform 0.3s, box-shadow 0.3s;
-                    text-decoration: none;
-                    display: block;
-                }
-
-                .card:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-                }
-
-                .card-icon {
-                    font-size: 3rem;
-                    margin-bottom: 20px;
-                }
-
-                .card-title {
-                    color: #333;
-                    font-size: 1.5rem;
-                    font-weight: 600;
-                    margin-bottom: 10px;
-                }
-
-                .card-description {
-                    color: #666;
-                    font-size: 1rem;
-                    line-height: 1.6;
-                }
-
-                .badge {
-                    display: inline-block;
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    color: white;
-                    padding: 5px 15px;
-                    border-radius: 20px;
-                    font-size: 0.9rem;
-                    margin-top: 15px;
-                }
-
-                .footer {
-                    text-align: center;
-                    color: white;
-                    margin-top: 30px;
-                    font-size: 0.9rem;
-                }
-
-                .footer a {
-                    color: white;
-                    text-decoration: underline;
-                }
-            `}</style>
-
-            <div className="container">
-                <div className="hero">
-                    <h1>🚀 Laravel 学習ガイド</h1>
-                    <p className="subtitle">実践的なコード例で Laravel の仕組みを深く理解する</p>
-                </div>
-
-                <div className="card-grid">
-                    {cards.map((card, index) => (
-                        <Link key={index} href={card.href} className="card">
-                            <div className="card-icon">{card.icon}</div>
-                            <h2 className="card-title">{card.title}</h2>
-                            <p className="card-description">{card.description}</p>
-                            <span className="badge">{card.badge}</span>
-                        </Link>
-                    ))}
-                </div>
-
-                <div className="footer">
-                    <p>
-                        Laravel {laravelVersion || "11.x"} | PHP {phpVersion || "8.x"}
-                    </p>
-                    <p>Made with ❤️ for learning Laravel</p>
+                    {/* Footer */}
+                    <footer className="text-center border-t border-gray-800 pt-8">
+                        <p className="text-sm text-gray-600 font-mono">
+                            Laravel {laravelVersion || "11.x"} · PHP {phpVersion || "8.x"}
+                        </p>
+                    </footer>
                 </div>
             </div>
         </>
