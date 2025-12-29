@@ -5,8 +5,6 @@ export default function Index({ simpleQuery, complexQuery }) {
         <>
             <Head title="Query Builder 挙動確認" />
             <div className="theme-querybuilder">
-                <link rel="stylesheet" href="/css/app.css" />
-
                 <div className="nav-links">
                     <Link href="/">← ホームに戻る</Link>
                     <Link href="/querybuilder/guide">学習ガイドを見る</Link>

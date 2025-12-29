@@ -6,7 +6,6 @@ export default function Result({ state }) {
         <>
             <Head title="Validation 結果" />
             <div className="theme-validation">
-                <link rel="stylesheet" href="/css/app.css" />
 
                 <div className="nav-links">
                     <Link href="/">← ホームに戻る</Link>

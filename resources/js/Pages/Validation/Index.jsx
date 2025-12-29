@@ -18,7 +18,6 @@ export default function Index() {
         <>
             <Head title="Validation 実践" />
             <div className="theme-validation">
-                <link rel="stylesheet" href="/css/app.css" />
                 <style>{`
                     body {
                         max-width: 800px;

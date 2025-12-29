@@ -6,7 +6,6 @@ export default function Index() {
         <>
             <Head title="Blade エスケープ完全ガイド" />
             <div className="theme-bladeescape">
-                <link rel="stylesheet" href="/css/app.css" />
 
                 <div className="nav-links">
                     <Link href="/">← ホームに戻る</Link>

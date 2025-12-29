@@ -6,7 +6,6 @@ export default function Guide() {
         <>
             <Head title="Validation 学習ガイド" />
             <div className="theme-validation">
-                <link rel="stylesheet" href="/css/app.css" />
 
                 <div className="nav-links">
                     <Link href="/">← ホームに戻る</Link>

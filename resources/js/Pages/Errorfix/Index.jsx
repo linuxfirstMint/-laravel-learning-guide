@@ -6,7 +6,6 @@ export default function Index() {
         <>
             <Head title="エラー修正の流れ" />
             <div className="theme-errorfix">
-                <link rel="stylesheet" href="/css/app.css" />
 
                 <div className="nav-links">
                     <Link href="/">← ホームに戻る</Link>
