@@ -1,0 +1,325 @@
+/* Laravel Learning Guide - Common Styles */
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    line-height: 1.6;
+}
+
+/* Typography */
+h1 {
+    color: #333;
+    border-bottom: 3px solid var(--primary-color, #667eea);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    color: #555;
+    margin-top: 30px;
+    border-left: 4px solid var(--primary-color, #667eea);
+    padding-left: 15px;
+}
+
+h3 {
+    color: #666;
+    margin-top: 20px;
+}
+
+p {
+    margin: 10px 0;
+}
+
+/* Lists */
+ul {
+    margin: 10px 0;
+}
+
+li {
+    margin: 8px 0;
+}
+
+/* Section Containers */
+.section {
+    background: white;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Code Blocks */
+.code-block {
+    background: #282c34;
+    color: #abb2bf;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 15px 0;
+}
+
+pre {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+}
+
+.command {
+    background: #e7f3e7;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-family: monospace;
+    color: #2d5016;
+}
+
+/* Alert Boxes */
+.tip {
+    background: #d1ecf1;
+    border-left: 4px solid #17a2b8;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.note {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.warning {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.good {
+    background: #d4edda;
+    border-left: 4px solid #28a745;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.bad {
+    background: #f8d7da;
+    border-left: 4px solid #dc3545;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.success {
+    background: #d4edda;
+    border-left: 4px solid #28a745;
+    padding: 15px;
+    margin: 15px 0;
+    color: #155724;
+}
+
+.error-box {
+    background: #fee;
+    border-left: 4px solid #e74c3c;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+}
+
+.error-title {
+    color: #c0392b;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+/* Step Boxes */
+.step {
+    background: #f8f9fa;
+    border-left: 4px solid var(--primary-color, #667eea);
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.step-number {
+    display: inline-block;
+    background: var(--primary-color, #667eea);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Labels */
+.label {
+    font-weight: bold;
+    color: var(--primary-color, #667eea);
+    margin-top: 15px;
+    display: block;
+}
+
+/* Navigation */
+.nav-links {
+    background: #343a40;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    background: var(--primary-color, #667eea);
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.nav-links a:hover {
+    background: var(--primary-hover, #5568d3);
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background: var(--primary-color, #667eea);
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+/* Form Elements */
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color, #667eea);
+}
+
+button {
+    background: linear-gradient(135deg, var(--primary-color, #667eea) 0%, var(--secondary-color, #764ba2) 100%);
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.rules {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Status Badges */
+.status {
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.status.success {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status.error {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Info Boxes */
+.info {
+    background: #e7f3ff;
+    border-left: 4px solid #2196F3;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+/* Theme Color Variables - Can be overridden per page */
+:root {
+    --primary-color: #667eea;
+    --primary-hover: #5568d3;
+    --secondary-color: #764ba2;
+}
+
+/* QueryBuilder Theme */
+.theme-querybuilder {
+    --primary-color: #FF2D20;
+    --primary-hover: #e02a1b;
+    --secondary-color: #FF2D20;
+}
+
+/* Validation Theme */
+.theme-validation {
+    --primary-color: #667eea;
+    --primary-hover: #5568d3;
+    --secondary-color: #764ba2;
+}
+
+/* ErrorFix Theme */
+.theme-errorfix {
+    --primary-color: #e74c3c;
+    --primary-hover: #c0392b;
+    --secondary-color: #e74c3c;
+}
+
+/* BladeEscape Theme */
+.theme-bladeescape {
+    --primary-color: #3498db;
+    --primary-hover: #2980b9;
+    --secondary-color: #3498db;
+}
