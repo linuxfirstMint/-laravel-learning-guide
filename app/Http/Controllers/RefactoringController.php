@@ -6,6 +6,6 @@ class RefactoringController extends Controller
 {
     public function index()
     {
-        return view('refactoring.index');
+        return inertia('Refactoring/Index');
     }
 }
