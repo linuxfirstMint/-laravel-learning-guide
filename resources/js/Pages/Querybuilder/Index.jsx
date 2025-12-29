@@ -1,4 +1,3 @@
-import React from "react";
 import { Head, Link } from "@inertiajs/react";
 
 export default function Index({ simpleQuery, complexQuery }) {
@@ -18,7 +17,7 @@ export default function Index({ simpleQuery, complexQuery }) {
                 <div className="section">
                     <h2>シンプルなクエリ</h2>
                     <div className="code-block">
-                        <pre>$query = User::where('age', '>', 18);</pre>
+                        <pre>{`$query = User::where('age', '>', 18);`}</pre>
                     </div>
 
                     <span className="label">生成されるSQL:</span>
