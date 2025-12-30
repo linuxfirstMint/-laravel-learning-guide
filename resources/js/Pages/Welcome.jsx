@@ -4,196 +4,168 @@ export default function Welcome({ laravelVersion, phpVersion }) {
     const cards = [
         {
             href: "/querybuilder",
-            icon: "🔍",
-            title: "Query Builder 実践",
+            icon: "[DB]",
+            title: "Query Builder",
             description:
                 "クエリビルダーの内部状態をリアルタイムで確認。WHERE条件やバインディングの仕組みを視覚的に理解できます。",
-            badge: "データベース",
+            logId: "0x8F4A",
+            status: "READ_ONLY",
         },
         {
             href: "/validation",
-            icon: "✅",
-            title: "Validation 実践",
+            icon: "[VAL]",
+            title: "Validation",
             description:
                 "フォームのバリデーション機能を実践。ルール、エラー、検証済みデータの内部構造を確認できます。",
-            badge: "セキュリティ",
+            logId: "0x9C2B",
+            status: "VALIDATED",
         },
         {
             href: "/errorfix",
-            icon: "🔧",
-            title: "エラー修正の流れ",
+            icon: "[ERR]",
+            title: "Error Fix",
             description:
                 "実際に発生したBladeエラーを例に、デバッグから修正までの実践的な流れを8ステップで解説します。",
-            badge: "デバッグ",
+            logId: "0xA1F3",
+            status: "CRITICAL",
         },
         {
             href: "/bladeescape",
-            icon: "📝",
-            title: "Bladeエスケープ",
+            icon: "[ESC]",
+            title: "Blade Escape",
             description:
                 "コードサンプルを表示する際のエスケープ方法を完全網羅。よくある間違いパターンと正しい書き方を学べます。",
-            badge: "Blade",
+            logId: "0xB7D4",
+            status: "SECURE",
         },
         {
             href: "/querybuilder/guide",
-            icon: "📚",
-            title: "実装ガイド",
+            icon: "[DOC]",
+            title: "Implementation Guide",
             description:
                 "実装の流れを7ステップで解説。Controller、View、Route、Migrationの作成方法を学べます。",
-            badge: "基礎",
+            logId: "0xC3E5",
+            status: "ARCHIVED",
         },
         {
             href: "/refactoring",
-            icon: "♻️",
-            title: "リファクタリング",
+            icon: "[REF]",
+            title: "Refactoring",
             description:
                 "コードの重複削減とレイアウト共通化の実践。保守性の高いビュー構造への改善ステップを解説します。",
-            badge: "基礎",
+            logId: "0xD8A6",
+            status: "OPTIMIZED",
         },
         {
             href: "/inertia",
-            icon: "⚛️",
-            title: "Inertia.js + React 導入",
+            icon: "[SPA]",
+            title: "Inertia.js + React",
             description:
                 "LaravelにInertia.jsとReactを導入し、SPAを実現する完全ガイド。セットアップから問題解決まで。",
-            badge: "フロントエンド",
+            logId: "0xE4B7",
+            status: "ACTIVE",
         },
     ];
 
     return (
         <>
-            <Head title="Laravel 学習ガイド" />
-            <style>{`
-                * {
-                    margin: 0;
-                    padding: 0;
-                    box-sizing: border-box;
-                }
+            <Head title="Laravel System Dump" />
 
-                body {
-                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    min-height: 100vh;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding: 20px;
-                }
+            <div className="min-h-screen bg-black text-gray-300 font-mono relative">
+                {/* Grid background */}
+                <div className="fixed inset-0 bg-[linear-gradient(to_right,#222_1px,transparent_1px),linear-gradient(to_bottom,#222_1px,transparent_1px)] bg-[size:20px_20px]"></div>
 
-                .container {
-                    max-width: 900px;
-                    width: 100%;
-                }
+                <div className="relative max-w-6xl mx-auto px-4 py-12">
+                    {/* Header */}
+                    <header className="mb-12">
+                        <div className="border-2 border-white bg-black p-8">
+                            <div className="border-b-2 border-white pb-4 mb-4">
+                                <div className="font-serif text-sm uppercase tracking-tight text-gray-400 mb-2">
+                                    SYSTEM PROCESS: LARAVEL_KERNEL.EXE
+                                </div>
+                                <h1 className="font-serif text-6xl uppercase tracking-tighter text-white mb-2">
+                                    LEARNING GUIDE
+                                </h1>
+                                <div className="font-serif text-sm uppercase text-gray-400">
+                                    /var/www/html/laravel_sandbox/
+                                </div>
+                            </div>
+                            <div className="grid grid-cols-12 gap-y-1 text-xs">
+                                <div className="col-span-3 text-gray-500 uppercase">
+                                    System Ver:
+                                </div>
+                                <div className="col-span-9 text-white">
+                                    Laravel {laravelVersion || "11.x"} | PHP{" "}
+                                    {phpVersion || "8.x"}
+                                </div>
+                                <div className="col-span-3 text-gray-500 uppercase">
+                                    Status:
+                                </div>
+                                <div className="col-span-9 text-[#00FF00]">
+                                    [RUNNING]
+                                </div>
+                                <div className="col-span-3 text-gray-500 uppercase">
+                                    Purpose:
+                                </div>
+                                <div className="col-span-9">
+                                    実践的なコード例で Laravel の仕組みを深く理解する
+                                </div>
+                            </div>
+                        </div>
+                    </header>
 
-                .hero {
-                    background: white;
-                    border-radius: 20px;
-                    padding: 60px 40px;
-                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-                    text-align: center;
-                    margin-bottom: 30px;
-                }
+                    {/* Cards Grid */}
+                    <div className="space-y-4 mb-8">
+                        {cards.map((card, index) => (
+                            <Link
+                                key={index}
+                                href={card.href}
+                                className="block border border-white bg-black hover:bg-white hover:text-black transition-colors duration-0"
+                            >
+                                <div className="border-b border-white bg-white text-black px-3 py-1 font-serif font-bold uppercase text-xs flex justify-between">
+                                    <span>LOG_ID: {card.logId}</span>
+                                    <span>STATUS: [{card.status}]</span>
+                                </div>
 
-                h1 {
-                    color: #333;
-                    font-size: 3rem;
-                    margin-bottom: 15px;
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    background-clip: text;
-                }
+                                <div className="p-4 grid grid-cols-12 gap-y-2 text-sm">
+                                    <div className="col-span-2 text-gray-500 uppercase text-xs">
+                                        Module:
+                                    </div>
+                                    <div className="col-span-10 flex items-center">
+                                        <span className="text-[#0000AA] mr-3 font-bold">
+                                            {card.icon}
+                                        </span>
+                                        <span className="font-serif font-bold uppercase tracking-tight">
+                                            {card.title}
+                                        </span>
+                                    </div>
 
-                .subtitle {
-                    color: #666;
-                    font-size: 1.2rem;
-                    margin-bottom: 40px;
-                }
+                                    <div className="col-span-2 text-gray-500 uppercase text-xs">
+                                        Detail:
+                                    </div>
+                                    <div className="col-span-10 text-gray-300 leading-relaxed">
+                                        {card.description}
+                                    </div>
 
-                .card-grid {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                    gap: 20px;
-                }
+                                    <div className="col-span-2 text-gray-500 uppercase text-xs">
+                                        Action:
+                                    </div>
+                                    <div className="col-span-10">
+                                        <span className="text-[#0000AA] underline">
+                                            {">> ACCESS_FULL_DATA"}
+                                        </span>
+                                    </div>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
 
-                .card {
-                    background: white;
-                    border-radius: 15px;
-                    padding: 30px;
-                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-                    transition: transform 0.3s, box-shadow 0.3s;
-                    text-decoration: none;
-                    display: block;
-                }
-
-                .card:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-                }
-
-                .card-icon {
-                    font-size: 3rem;
-                    margin-bottom: 20px;
-                }
-
-                .card-title {
-                    color: #333;
-                    font-size: 1.5rem;
-                    font-weight: 600;
-                    margin-bottom: 10px;
-                }
-
-                .card-description {
-                    color: #666;
-                    font-size: 1rem;
-                    line-height: 1.6;
-                }
-
-                .badge {
-                    display: inline-block;
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    color: white;
-                    padding: 5px 15px;
-                    border-radius: 20px;
-                    font-size: 0.9rem;
-                    margin-top: 15px;
-                }
-
-                .footer {
-                    text-align: center;
-                    color: white;
-                    margin-top: 30px;
-                    font-size: 0.9rem;
-                }
-
-                .footer a {
-                    color: white;
-                    text-decoration: underline;
-                }
-            `}</style>
-
-            <div className="container">
-                <div className="hero">
-                    <h1>🚀 Laravel 学習ガイド</h1>
-                    <p className="subtitle">実践的なコード例で Laravel の仕組みを深く理解する</p>
-                </div>
-
-                <div className="card-grid">
-                    {cards.map((card, index) => (
-                        <Link key={index} href={card.href} className="card">
-                            <div className="card-icon">{card.icon}</div>
-                            <h2 className="card-title">{card.title}</h2>
-                            <p className="card-description">{card.description}</p>
-                            <span className="badge">{card.badge}</span>
-                        </Link>
-                    ))}
-                </div>
-
-                <div className="footer">
-                    <p>
-                        Laravel {laravelVersion || "11.x"} | PHP {phpVersion || "8.x"}
-                    </p>
-                    <p>Made with ❤️ for learning Laravel</p>
+                    {/* Footer */}
+                    <footer className="border-t-2 border-white pt-4">
+                        <div className="text-xs text-gray-500 uppercase text-center font-serif tracking-wider">
+                            END OF SYSTEM DUMP / PRESS ANY KEY TO CONTINUE
+                        </div>
+                    </footer>
                 </div>
             </div>
         </>
